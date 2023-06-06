@@ -71,7 +71,7 @@ gananciatotal :: Jugador -> Precio
 gananciatotal jugador =  propiedadesBaratas jugador * 10 + propiedadesCaras jugador * 20
 
 propiedadesBaratas :: Jugador -> Precio
-propiedadesBaratas jugador = (length (filter esbarato (preciosPropiedades jugador)))
+propiedadesBaratas jugador = length (filter esbarato (preciosPropiedades jugador))
 
 propiedadesCaras :: Jugador -> Precio
 propiedadesCaras jugador = length (filter (not . esbarato) (preciosPropiedades jugador))
@@ -87,7 +87,23 @@ baltica = ("Baltica", 80)
 palermo :: Propiedad
 palermo = ("Palermo", 300)
 
+recoleta :: Propiedad
+recoleta = ("Recoleta", 350)
+
+belgrano :: Propiedad
+belgrano = ("Belgrano", 400)
+
 nico :: Jugador
 nico = Unjugador {nombre = "Nicolas", 
 cantdinero = 500, tactica = "Oferente singular", 
 propiedades = [baltica,palermo], acciones = [pasarporelbanco]}
+
+cheto :: Jugador
+cheto = Unjugador {nombre= "Cheto",
+cantdinero = 500, tactica = "Accionista", 
+propiedades = [recoleta,palermo,belgrano], acciones = [pasarporelbanco]}
+
+tontaina :: Jugador
+tontaina = Unjugador {nombre= "Tontaina",
+cantdinero = 500, tactica = "nada", 
+propiedades = [], acciones = [pasarporelbanco]}
